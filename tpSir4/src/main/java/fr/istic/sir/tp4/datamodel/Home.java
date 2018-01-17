@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Home {
 	private Long id;
 	private String name;
-
+	private List<ElectronicDevice> electronicDevice = new ArrayList<ElectronicDevice>();
 	private List<Heater> heater = new ArrayList<Heater>();
 	
 	public Home() {
@@ -34,7 +34,14 @@ public class Home {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	@OneToMany(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "person_id")
+	public List<ElectronicDevice> getElectronicDevice() {
+		return electronicDevice;
+	}
+	public void addElectronicDevice(ElectronicDevice electronicDeviceid) {
+		electronicDevice.add(electronicDeviceid);
+	}
 
 	@OneToMany(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "home_id")
@@ -47,7 +54,9 @@ public class Home {
 	public void setHeater(List<Heater> heater) {
 		this.heater = heater;
 	}
-
+	public void setElectronicDevice(List<ElectronicDevice> electronicDevice) {
+		this.electronicDevice = electronicDevice;
+	}
 	
 	
 	

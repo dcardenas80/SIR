@@ -37,7 +37,10 @@ public class EntityManagerHelper {
     }
 
     public static void beginTransaction() {
-        getEntityManager().getTransaction().begin();
+    	if ( !getEntityManager().getTransaction().isActive()) {
+    		getEntityManager().getTransaction().begin();
+		}
+        
     }
 
     public static void rollback() {

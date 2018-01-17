@@ -16,7 +16,6 @@ public class Person {
 	private Long id;
 	private String name;
 	private List<Home> homes = new ArrayList<Home>();
-	private List<ElectronicDevice> electronicDevice = new ArrayList<ElectronicDevice>();
 	private List<Person> friends = new ArrayList<Person>();
 	@Id
 	@GeneratedValue
@@ -41,14 +40,7 @@ public class Person {
 	public void setFriends(List<Person> friends) {
 		this.friends = friends;
 	}
-	@OneToMany(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "person_id")
-	public List<ElectronicDevice> getElectronicDevice() {
-		return electronicDevice;
-	}
-	public void addElectronicDevice(ElectronicDevice electronicDeviceid) {
-		electronicDevice.add(electronicDeviceid);
-	}
+	
 	@OneToMany(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "person_id")
 	public List<Home> getHomes() {
@@ -56,9 +48,6 @@ public class Person {
 	}
 	public void addHomes(Home homeId) {
 		homes.add(homeId);
-	}
-	public void setElectronicDevice(List<ElectronicDevice> electronicDevice) {
-		this.electronicDevice = electronicDevice;
 	}
 	public void setHomes(List<Home> homes) {
 		this.homes = homes;

@@ -7,6 +7,7 @@ import fr.istic.sir.tp4.jpa.dao.interfaces.GenericDao;
 public class PersonDAO implements GenericDao<Person, Long> {
 
 	public Person create(Person t) {
+		
 		EntityManagerHelper.beginTransaction();
 		EntityManagerHelper.getEntityManager().persist(t);
 		EntityManagerHelper.commit();
@@ -23,7 +24,7 @@ public class PersonDAO implements GenericDao<Person, Long> {
 
 	public Person update(Person t) {
 		// TODO Auto-generated method stub
-		EntityManagerHelper.getEntityManager().merge(t);
+		t = EntityManagerHelper.getEntityManager().merge(t);
 		EntityManagerHelper.commit();
 		return t;
 	}
