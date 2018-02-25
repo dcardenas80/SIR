@@ -22,6 +22,7 @@ public class PersonServlet extends HttpServlet{
         person.setName(personName);
         PersonDAO personDAO = new PersonDAO();
         personDAO.create(person);
+        out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/styles/style.css' />");
 		out.println("<HTML>\n<BODY>\n" + "<H1>Person inserted on DB</H1>\n" + "<UL>\n" + " <LI>Nom: "
 				+ personName +"</UL>\n" + "</BODY></HTML>");
 	}

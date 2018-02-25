@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 public class Person {
 	private Long id;
 	private String name;
+	private String email;
+	private String lastName;
 	private List<Home> homes = new ArrayList<Home>();
 	private List<Person> friends = new ArrayList<Person>();
 	@Id
@@ -51,6 +53,18 @@ public class Person {
 	}
 	public void setHomes(List<Home> homes) {
 		this.homes = homes;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	

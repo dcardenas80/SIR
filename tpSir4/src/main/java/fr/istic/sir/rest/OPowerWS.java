@@ -30,6 +30,8 @@ public class OPowerWS {
 
 		Person person = new Person();
 		person.setName(personJSON.getName());
+		person.setLastName(personJSON.getLastName());
+		person.setEmail(personJSON.getEmail());
 		PersonDAO personDao = new PersonDAO();
 		personDao.create(person);
 		ResponseJSON responseJSON = new ResponseJSON();
