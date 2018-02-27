@@ -2,6 +2,7 @@ package fr.istic.sir.tp4.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,14 +18,16 @@ public class PersonServlet extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-        String personName = request.getParameter("name");
-        Person person = new Person();
-        person.setName(personName);
-        PersonDAO personDAO = new PersonDAO();
-        personDAO.create(person);
-        out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/styles/style.css' />");
-		out.println("<HTML>\n<BODY>\n" + "<H1>Person inserted on DB</H1>\n" + "<UL>\n" + " <LI>Nom: "
-				+ personName +"</UL>\n" + "</BODY></HTML>");
+          PersonDAO personDAO = new PersonDAO();
+        List<Person> personList = personDAO.readAll();
+        for (Person person : personList) {
+        	out.println("<HTML>\n<BODY>\n" + "<H1>Personne trouvé</H1>\n" + "<UL>\n" + " <LI>Prenom: "
+    				+ person.getName() +"</UL>\n" + "<UL>\n" + " <LI>Nom: "
+    				+ person.getLastName() +"</UL>\n" + "<UL>\n" + " <LI>Age: "
+    				+ person.getAge() +"</UL>\n" + "<UL>\n" + " <LI>Email: "
+    				+ person.getEmail() +"</UL>\n" +"</BODY></HTML>");
+		}
+     	
 	}
 
 }
