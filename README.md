@@ -8,5 +8,8 @@ Ce projet c'est la continuation de TP2SIR, dans cette application on a ajouté u
 - Le projet a été développé avec eclipse comme IDE et maven pour la gestion de dépendances et automatisation.
 - Pour valider le checkstyle du projet lancer la commande ```mvn site ```.
 - Pour faire marcher le projet, dans la ligne de commandes, il faut aller à la racine du dossier du projet et écrire la commande suivante ```mvn tomcat7:run```, cette commande permet d'utiliser un serveur web tomcat pour faire marcher l'application.
+- Pour aller dans les servlets on utilise le port 8081, donc l'url pour aller à toutes les ressources web est localhost:8081
+        - Pour créer une nouvelle personne dans la BD http://localhost:8081/newperson.html
+        - Pour consulter toutes les personnes dans la BD http://localhost:8081/getPersons.html
 
 
