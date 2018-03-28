@@ -1,5 +1,7 @@
 package fr.istic.sir.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -32,6 +34,7 @@ public class OPowerWS {
 		person.setName(personJSON.getName());
 		person.setLastName(personJSON.getLastName());
 		person.setEmail(personJSON.getEmail());
+		person.setAge(personJSON.getAge());
 		PersonDAO personDao = new PersonDAO();
 		personDao.create(person);
 		ResponseJSON responseJSON = new ResponseJSON();
@@ -51,5 +54,19 @@ public class OPowerWS {
 		responseJSON.setObjectToSave(person);
 		return responseJSON;
     }
+	
+	
+	@GET
+	@Path("/getpeople")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResponseJSON getPeople() {
+		PersonDAO  personDAO = new PersonDAO();
+		List<Person> person = personDAO.readAll();
+		ResponseJSON responseJSON = new ResponseJSON();
+		responseJSON.setState("OK");
+		responseJSON.setObjectToSave(person);
+		return responseJSON;
+	}
+	
 
 }
