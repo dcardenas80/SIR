@@ -8,6 +8,7 @@ public class PersonJSON {
 	private String name;
 	private String email;
 	private String lastName;
+	private int age;
 	public String getName() {
 		return name;
 	}
@@ -25,6 +26,12 @@ public class PersonJSON {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 }
